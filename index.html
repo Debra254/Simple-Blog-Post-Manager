@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Blog Manager</title>
+    <link rel="stylesheet" href="./css/syle.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Simple Blog/Post Manager</h1>
+        
+        <!-- Post List Section -->
+        <div id="post-list" class="post-list">
+            <h2>Blog Posts</h2>
+            <ul id="posts-container"></ul>
+        </div>
+
+        <!-- Post Detail Section -->
+        <div id="post-detail" class="post-detail">
+            <h2>Post Details</h2>
+            <div id="post-content"></div>
+            <button id="delete-post" class="delete-btn">Delete Post</button>
+        </div>
+
+        <!-- New Post Form -->
+        <div class="new-post-form">
+            <h2>Add New Post</h2>
+            <form id="new-post-form">
+                <input type="text" id="post-title" placeholder="Title" required>
+                <textarea id="post-content" placeholder="Content" required></textarea>
+                <input type="text" id="post-author" placeholder="Author" required>
+                <input type="url" id="post-image" placeholder="Image URL">
+                <button type="submit">Add Post</button>
+            </form>
+        </div>
+    </div>
+    <script src="./src/index.js"></script>
+</body>
+</html>
