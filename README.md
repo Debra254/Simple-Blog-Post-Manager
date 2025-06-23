@@ -3,7 +3,7 @@
 This is a Single Page Application (SPA) built using **HTML**, **CSS**, and **JavaScript**, powered by **json-server** for a mock backend. The app allows users to browse, view, add, and delete blog posts.
 
 
-## 🚀 Features
+## Features
 
 - ✅ View a list of blog posts
 - ✅ Click a post to see full details
@@ -13,7 +13,7 @@ This is a Single Page Application (SPA) built using **HTML**, **CSS**, and **Jav
 - ✅ RESTful CRUD operations using `json-server`
 
 
-## 🛠 Technologies Used
+## Technologies Used
 
 - HTML5
 - CSS3
@@ -21,7 +21,7 @@ This is a Single Page Application (SPA) built using **HTML**, **CSS**, and **Jav
 - [json-server](https://github.com/typicode/json-server) – for fake API
 
 
-## 🧑‍💻 User Stories (MVP)
+## User Stories (MVP)
 
 - As a **user**, I want to see a list of blog posts, so that I can choose one to read.
 - As a **user**, I want to click on a blog post to read its full content.
