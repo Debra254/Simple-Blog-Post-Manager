@@ -1,37 +1,31 @@
 const BASE_URL = 'http://localhost:3000/posts';
 
-// DOM Elements
+
 const postsContainer = document.getElementById('posts-container');
 const postContent = document.getElementById('post-content');
 const newPostForm = document.getElementById('new-post-form');
 const deletePostBtn = document.getElementById('delete-post');
 
-// Main function to initialize the app
+
 function main() {
-    // Load posts when page loads
     displayPosts();
-    
-    // Add event listeners
     addNewPostListener();
     setupDeletePostListener();
 }
 
-// Fetch and display all posts
+
 async function displayPosts() {
     try {
         const response = await fetch(BASE_URL);
         const posts = await response.json();
         
-        // Clear existing posts
         postsContainer.innerHTML = '';
         
-        // Create post elements
         posts.forEach(post => {
             const postElement = createPostElement(post);
             postsContainer.appendChild(postElement);
         });
         
-        // Auto-display first post if available
         if (posts.length > 0) {
             handlePostClick(posts[0]);
         }
@@ -40,7 +34,6 @@ async function displayPosts() {
     }
 }
 
-// Create a post element
 function createPostElement(post) {
     const li = document.createElement('li');
     li.className = 'post-item';
@@ -57,22 +50,20 @@ function createPostElement(post) {
     li.appendChild(img);
     li.appendChild(title);
     
-    // Add click event listener
+ 
     li.addEventListener('click', () => handlePostClick(post));
     
     return li;
 }
 
-// Handle post click to show details
 async function handlePostClick(post) {
     try {
         const response = await fetch(`${BASE_URL}/${post.id}`);
         const postDetails = await response.json();
         
-        // Clear existing content
+      
         postContent.innerHTML = '';
         
-        // Create post detail elements
         const title = document.createElement('h3');
         title.textContent = postDetails.title;
         
@@ -86,23 +77,23 @@ async function handlePostClick(post) {
         image.src = postDetails.image || 'https://via.placeholder.com/150';
         image.className = 'post-detail-image';
         
-        // Add elements to content
+        
         postContent.appendChild(image);
         postContent.appendChild(title);
         postContent.appendChild(author);
         postContent.appendChild(content);
         
-        // Store the current post ID for deletion
+       
         deletePostBtn.dataset.postId = post.id;
         
-        // Show delete button
+       
         deletePostBtn.style.display = 'block';
     } catch (error) {
         console.error('Error fetching post details:', error);
     }
 }
 
-// Add new post
+
 async function addNewPostListener() {
     newPostForm.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -124,10 +115,7 @@ async function addNewPostListener() {
             });
             
             if (response.ok) {
-                // Clear form
                 newPostForm.reset();
-                
-                // Refresh posts display
                 displayPosts();
             }
         } catch (error) {
@@ -136,7 +124,7 @@ async function addNewPostListener() {
     });
 }
 
-// Setup delete post listener
+
 function setupDeletePostListener() {
     deletePostBtn.addEventListener('click', async () => {
         const postId = deletePostBtn.dataset.postId;
@@ -156,16 +144,11 @@ function setupDeletePostListener() {
             });
             
             if (response.ok) {
-                // Hide delete button
                 deletePostBtn.style.display = 'none';
-                
-                // Clear post content
                 postContent.innerHTML = '';
-                
-                // Refresh posts display
                 displayPosts();
             } else {
-                throw new Error('Failed to delete post');
+                throw new ('Failed to delete post');
             }
         } catch (error) {
             console.error('Error deleting post:', error);
@@ -174,5 +157,4 @@ function setupDeletePostListener() {
     });
 }
 
-// Initialize the app
 document.addEventListener('DOMContentLoaded', main);
