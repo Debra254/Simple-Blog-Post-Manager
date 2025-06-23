@@ -29,7 +29,7 @@ This is a Single Page Application (SPA) built using **HTML**, **CSS**, and **Jav
 - As a **user**, I want to delete a post, so that I can remove outdated or unwanted content.
 
 
-## 🧪 How to Run the Project
+##  How to Run the Project
 
 ### 1. Clone the repository
 
